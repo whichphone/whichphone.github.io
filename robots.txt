@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://whichphone.github.io/sitemap.xml

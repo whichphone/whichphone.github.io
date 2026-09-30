@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WhichPhone – Free Mobile Phone Detector: Find Your Phone Model & Specs</title>
+<meta name="description" content="Detect your mobile phone model and specs instantly. WhichPhone shows your device name, OS, screen, CPU, RAM and GPU in one tap. Free, private, no install.">
+<meta name="keywords" content="mobile phone detector, what phone do I have, detect phone model, phone specs checker, which phone is this">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0ea5c6">
+<link rel="canonical" href="https://whichphone.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='8' y='3' width='16' height='26' rx='4' fill='none' stroke='%230ea5c6' stroke-width='3'/%3E%3C/svg%3E">
+<meta property="og:type" content="website"><meta property="og:site_name" content="WhichPhone">
+<meta property="og:title" content="WhichPhone – Free Mobile Phone Detector">
+<meta property="og:description" content="Find your phone model and specs in one tap.">
+<meta property="og:url" content="https://whichphone.github.io/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="WhichPhone – Free Mobile Phone Detector"><meta name="twitter:description" content="Find your phone model and specs in one tap.">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebSite","@id":"https://whichphone.github.io/#site","url":"https://whichphone.github.io/","name":"WhichPhone","inLanguage":"en"},
+{"@type":"WebApplication","name":"WhichPhone Mobile Phone Detector","url":"https://whichphone.github.io/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","description":"Free web app that detects your mobile phone model, operating system, screen, CPU cores, RAM and GPU.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Phone model detection","Screen resolution and pixel ratio","OS version","CPU cores, RAM and GPU","Runs locally in the browser"]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How does WhichPhone detect my phone model?","acceptedAnswer":{"@type":"Answer","text":"It reads information your browser already shares, such as the user agent, client hints, screen size and pixel ratio, then matches it against known devices."}},
+{"@type":"Question","name":"Why does my iPhone show several possible models?","acceptedAnswer":{"@type":"Answer","text":"Safari does not reveal the exact iPhone model. Several models share the same screen, so WhichPhone shows the matching group."}},
+{"@type":"Question","name":"Is my data sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No. Detection runs entirely in your browser and nothing is uploaded or stored."}},
+{"@type":"Question","name":"Does it work on Android phones?","acceptedAnswer":{"@type":"Answer","text":"Yes. Chrome-based browsers on Android share a model code, which WhichPhone uses to identify your phone."}},
+{"@type":"Question","name":"Is WhichPhone free?","acceptedAnswer":{"@type":"Answer","text":"Yes, it is completely free with no sign-up."}}]}]}
+</script>
+</head>
+<body>
+<site-header></site-header>
+<main>
+<section class="hero" id="detector"><div class="wrap hero-grid">
+<div><span class="chip">Free phone scanner</span>
+<h1>Which phone is this? Find out in one tap.</h1>
+<p class="lead">WhichPhone is a mobile phone detector that reads your browser and shows your phone model, operating system, screen, CPU, RAM and GPU. No app, no sign-up.</p>
+<a class="btn sm" href="#how">See how it works</a></div>
+<div class="panel" aria-live="polite">
+<div class="scanner" id="scanner"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="8" y="3" width="16" height="26" rx="4" stroke="currentColor" stroke-width="1.6"/><circle cx="13" cy="12" r="1.8" fill="currentColor"/><circle cx="19" cy="12" r="1.8" fill="currentColor"/><path d="M12 19h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+<button class="btn" id="detect-btn" type="button">Detect my phone</button>
+<div id="result" hidden><h2 id="result-title"></h2><p id="result-note"></p><div id="result-grid"></div></div>
+</div></div></section>
+
+<section id="features" class="band"><div class="wrap"><div class="sec-h rv"><h2>What the phone detector shows</h2><p class="lead">Everything your browser can safely tell us, arranged in one clear report.</p></div>
+<div class="grid">
+<article class="card rv"><div class="ic">M</div><h3>Model name</h3><p>Get your phone brand and model, or the closest matching group.</p></article>
+<article class="card rv"><div class="ic">S</div><h3>Screen details</h3><p>See CSS size, pixel ratio and true pixel resolution.</p></article>
+<article class="card rv"><div class="ic">C</div><h3>CPU and RAM</h3><p>Check logical core count and approximate memory.</p></article>
+<article class="card rv"><div class="ic">G</div><h3>GPU name</h3><p>Read the graphics renderer reported by your browser.</p></article>
+<article class="card rv"><div class="ic">O</div><h3>OS version</h3><p>Know which Android or iOS version you are running.</p></article>
+<article class="card rv"><div class="ic">N</div><h3>Network type</h3><p>See your connection class, such as 4G, when available.</p></article></div></div></section>
+
+<section id="how"><div class="wrap"><div class="sec-h rv"><h2>How it works</h2><p class="lead">Four quick steps, all inside your browser.</p></div>
+<ol class="steps">
+<li class="rv"><h3>Open the page</h3><p>Visit whichphone.github.io on the phone you want to check.</p></li>
+<li class="rv"><h3>Tap detect</h3><p>Press the button to start the scan.</p></li>
+<li class="rv"><h3>We read signals</h3><p>User agent, client hints, screen and hardware values are collected.</p></li>
+<li class="rv"><h3>View your specs</h3><p>Your device report appears right below the button.</p></li></ol></div></section>
+
+<section id="specs" class="band"><div class="wrap"><div class="sec-h rv"><h2>Spec fields explained</h2><p class="lead">Know what each detected value means.</p></div>
+<div class="tbl rv"><table><thead><tr><th>Field</th><th>What it tells you</th><th>Source</th></tr></thead><tbody>
+<tr><td>Device</td><td>Model or model group</td><td>Client hints, user agent, screen match</td></tr>
+<tr><td>Resolution</td><td>Real pixels on the display</td><td>Screen size x pixel ratio</td></tr>
+<tr><td>CPU cores</td><td>Logical processor threads</td><td>Browser hardware info</td></tr>
+<tr><td>RAM</td><td>Approximate memory in GB</td><td>Device memory API (Chrome)</td></tr>
+<tr><td>GPU</td><td>Graphics chip name</td><td>WebGL renderer</td></tr></tbody></table></div></div></section>
+
+<section id="brands"><div class="wrap"><div class="sec-h rv"><h2>Supported phone brands</h2><p class="lead">Works with phones from all major makers.</p></div>
+<div class="tags rv"><span>Apple iPhone</span><span>Samsung Galaxy</span><span>Google Pixel</span><span>Xiaomi</span><span>OnePlus</span><span>OPPO</span><span>realme</span><span>Motorola</span><span>Nothing</span><span>Vivo</span></div></div></section>
+
+<section id="usecases" class="band"><div class="wrap"><div class="sec-h rv"><h2>When to use it</h2></div>
+<div class="grid">
+<article class="card rv"><h3>Buying used</h3><p>Check that a second-hand phone matches its listing.</p></article>
+<article class="card rv"><h3>Finding accessories</h3><p>Know your exact model before buying a case or charger.</p></article>
+<article class="card rv"><h3>Tech support</h3><p>Share clear device details when asking for help.</p></article>
+<article class="card rv"><h3>Web development</h3><p>Test what screen and hardware data your site receives.</p></article></div></div></section>
+
+<section id="privacy"><div class="wrap"><div class="sec-h rv"><h2>Private by design</h2></div>
+<div class="grid">
+<article class="card rv"><h3>Runs in your browser</h3><p>All detection happens on your device.</p></article>
+<article class="card rv"><h3>Nothing uploaded</h3><p>No specs or identifiers are sent to any server.</p></article>
+<article class="card rv"><h3>No account needed</h3><p>Open the page, tap once, and you are done.</p></article></div></div></section>
+
+<section id="faq" class="band"><div class="wrap"><div class="sec-h rv"><h2>Frequently asked questions</h2></div>
+<div class="rv">
+<details><summary>How does WhichPhone detect my phone model?</summary><p>It reads information your browser already shares, such as the user agent, client hints, screen size and pixel ratio, then matches it against known devices.</p></details>
+<details><summary>Why does my iPhone show several possible models?</summary><p>Safari does not reveal the exact iPhone model. Several models share the same screen, so we show the matching group.</p></details>
+<details><summary>Is my data sent to a server?</summary><p>No. Detection runs entirely in your browser and nothing is uploaded or stored.</p></details>
+<details><summary>Does it work on Android phones?</summary><p>Yes. Chrome-based browsers on Android share a model code, which we use to identify your phone.</p></details>
+<details><summary>Is WhichPhone free?</summary><p>Yes, it is completely free with no sign-up.</p></details></div></div></section>
+
+<section id="cta" class="cta"><div class="wrap rv"><h2>Ready to identify your phone?</h2><p class="lead">Run the scan and get your specs in seconds.</p><a class="btn sm" href="#detector">Detect my phone</a></div></section>
+</main>
+<site-footer></site-footer>
+<script src="js/header.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
