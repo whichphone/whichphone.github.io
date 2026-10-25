@@ -39,11 +39,17 @@ const g=$('#result-grid');g.textContent='';
 rows.forEach(([k,v],i)=>{const c=document.createElement('div');c.className='cell';c.style.animationDelay=i*60+'ms';
 const a=document.createElement('span'),b=document.createElement('b');a.textContent=k;b.textContent=v;c.append(a,b);g.append(c)});
 $('#result').hidden=false}
+
+/* ---- detector (only on pages that have the button) ---- */
 const btn=$('#detect-btn'),scan=$('#scanner');
+if(btn&&scan){
 btn.onclick=async()=>{btn.disabled=true;btn.textContent='Scanning...';scan.classList.add('on');
 const [r]=await Promise.all([detect(),new Promise(r=>setTimeout(r,1400))]);
 scan.classList.remove('on');show(r);btn.disabled=false;btn.textContent='Scan again';
 $('#result').scrollIntoView({behavior:'smooth',block:'nearest'})};
+}
+
+/* ---- reveal animation (always runs) ---- */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.rv').forEach(e=>io.observe(e));
 })();
